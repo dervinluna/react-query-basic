@@ -12,10 +12,10 @@ const getRandomNumberFromApi = async():Promise<number> => {
 
 export const useRandom = () => {
 
-    const query = useQuery(
-        ['randomNumber'],
-        getRandomNumberFromApi
-    );
+    const query = useQuery({
+        queryKey: ['randomNumber'],
+        queryFn: () => getRandomNumberFromApi(),
+    });
 
 
     return query;
